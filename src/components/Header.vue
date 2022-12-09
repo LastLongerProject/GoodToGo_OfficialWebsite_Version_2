@@ -36,7 +36,9 @@
 .primary-menu a {
   @apply px-4 py-4 text-lg block font-medium transition
 }
-.primary-menu a:hover {
+.primary-menu li:hover a,
+.primary-menu li.hover a
+.primary-menu a.router-link-active {
   @apply text-blue
 }
 .primary-menu li {
