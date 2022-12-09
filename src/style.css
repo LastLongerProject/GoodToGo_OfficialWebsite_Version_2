@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+    font-family: 'Noto Sans TC', Arial, sans-serif;
+    @apply text-black tracking-wide
+}
+
+/* btn */
+.btn {
+    display: inline-block;
+    font-weight: 900;
+    padding: 8px 32px 10px 34px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    transition: all 0.3s ease;
+    @apply text-lg tracking-wider
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+.btn-bg-yellow {
+    @apply bg-yellow
+}
+.btn-bg-yellow:hover {
+    @apply bg-yellow-700
+}
+.btn-border-yellow {
+    @apply border-yellow text-yellow
+}
+.btn-border-yellow:hover {
+    @apply border-yellow-700 text-yellow-700
+}
+
+/* icon */
+.icon-svg {
+    display: inline-block;
+}
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
