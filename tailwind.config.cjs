@@ -39,6 +39,16 @@ module.exports = {
         700: '#FFC800',
       },
     },
+    fontSize: {
+      'xs': ['14px', '20px'],
+      'sm': ['16px', '24px'],
+      'base': ['18px', '26px'],
+      'lg': ['20px', '28px'],
+      'xl': ['24px', '32px'],
+      '2xl': ['28px', '40px'],
+      '3xl': ['34px', '50px'],
+      '4xl': ['55px', '70px'],
+    },
   },
   plugins: [],
 }
