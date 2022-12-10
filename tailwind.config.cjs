@@ -29,6 +29,9 @@ module.exports = {
         },
       },
       black: '#1B1E1F',
+      gray: {
+        DEFAULT: '#D9D9D9' // 500
+      },
       blue: {
         DEFAULT: '#40B9D8', // 500
         100: '#D9F1F7',
@@ -36,6 +39,7 @@ module.exports = {
       },
       yellow: {
         DEFAULT: '#FFD84B', // 500
+        250: '#FFECA5',
         700: '#FFC800',
       },
     },
@@ -48,6 +52,7 @@ module.exports = {
       '2xl': ['28px', '40px'],
       '3xl': ['34px', '50px'],
       '4xl': ['55px', '70px'],
+      '8xl': ['144px', '160px'],
     },
   },
   plugins: [],

@@ -1,12 +1,14 @@
-<script setup>
+<script>
 
 </script>
 
 <template>
-  <header>
-    <div class="container py-8">
+  <header class="header">
+    <div class="container py-4 lg:py-6">
       <div class="flex justify-between items-center">
-        <img src="../assets/img/logo_goodtogo.svg" class="logo" alt="GoodToGo logo" />
+        <router-link to="/">
+          <img src="../assets/img/logo_goodtogo.svg" class="logo" alt="GoodToGo logo" />
+        </router-link>
         <nav class="flex items-center gap-8">
           <ul class="primary-menu">
             <li>
@@ -30,14 +32,17 @@
 .logo {
   max-width: 205px;
 }
+.router-link-active {
+  pointer-events: none;
+}
 .primary-menu {
   @apply flex items-center gap-4
 }
 .primary-menu a {
-  @apply px-4 py-4 text-lg block font-medium transition
+  @apply px-4 py-3 text-lg block font-medium transition
 }
-.primary-menu li:hover a,
-.primary-menu li.hover a
+.primary-menu li:hover > a,
+.primary-menu li.hover > a
 .primary-menu a.router-link-active {
   @apply text-blue
 }
@@ -62,5 +67,12 @@
 }
 .dropdown-menu a {
   @apply py-1 text-xs
+}
+
+.header {
+  position: fixed;
+  z-index: 99;
+  transition: all 0.4s ease;
+  @apply bg-white top-0 w-full
 }
 </style>
