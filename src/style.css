@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-    --height-header: 84px;
+    --height-header: 55px;
     --color-yellow: #FFD84B;
     --color-blue: #40B9D8;
     --color-blue-250: #9FDCEC;
 }
+
 @media screen and (min-width: 768px) {
     :root {
         --height-header: 84px;
@@ -19,7 +20,7 @@
 }
 body {
     font-family: 'Noto Sans TC', Arial, sans-serif;
-    @apply text-black text-sm tracking-wide md:text-base
+    @apply text-black tracking-wide text-base
 }
 
 /* space */
@@ -39,6 +40,16 @@ body {
 .text-w-half {
     width: 0.5em;
     text-indent: -0.25em;
+}
+@media screen and (max-width: 768px) {
+    .text-3xl {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    .text-4xl {
+        font-size: 45px;
+        line-height: 1.3;
+    }
 }
 /* link */
 a.link {
@@ -121,6 +132,8 @@ a.link.link-blue:hover {
 .container-wide {
     max-width: 1160px;
     margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 /* card */

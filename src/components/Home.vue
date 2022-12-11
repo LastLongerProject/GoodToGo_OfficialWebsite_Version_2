@@ -109,7 +109,7 @@ export default {
       <div class="text-center mb-14">
         <h2 class="text-4xl font-extrabold highlighter">如何使用</h2>
       </div>
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col md:flex-row items-center justify-between">
         <div class="text-center">
           <div class="card border-gray mb-3">
             <h3 class="text-3xl font-extrabold">0<br />註冊</h3>
@@ -117,7 +117,7 @@ export default {
           </div>
           <p><router-link to="/service/#member" class="link link-yellow">會員權益</router-link></p>
         </div>
-        <span class="material-symbols-rounded text-4xl mb-6 text-w-half">arrow_right</span>
+        <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
         <div class="text-center">
           <div class="card border-black mb-3">
             <h3 class="text-3xl font-extrabold">1<br />借用</h3>
@@ -125,7 +125,7 @@ export default {
           </div>
           <p><router-link to="/service/#rent" class="link link-yellow">４種借用方式</router-link></p>
         </div>
-        <span class="material-symbols-rounded text-4xl mb-6 text-w-half">arrow_right</span>
+        <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
         <div class="text-center">
           <div class="card border-black mb-3">
             <h3 class="text-3xl font-extrabold">2<br />歸還</h3>
@@ -133,7 +133,7 @@ export default {
           </div>
           <p><router-link to="/service/#return" class="link link-yellow">２種歸還方式</router-link></p>
         </div>
-        <span class="material-symbols-rounded text-4xl mb-6 text-w-half">arrow_right</span>
+        <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
         <div class="text-center">
           <div class="card border-gray mb-3">
             <h3 class="text-3xl font-extrabold">∞<br />再來一次</h3>
@@ -186,6 +186,7 @@ export default {
   @apply flex flex-wrap items-center justify-center gap-10 max-w-2xl mx-auto
 }
 .total-text {
-  @apply text-8xl text-blue font-extrabold mb-8 inline-block
+  @apply text-4xl sm:text-6xl md:text-8xl text-blue font-extrabold mb-8 inline-block
 }
+
 </style>
