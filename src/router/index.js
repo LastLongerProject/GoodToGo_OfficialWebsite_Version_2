@@ -16,4 +16,17 @@ let routes = [
   }
 ]
 
-export default createRouter({ history, routes })
+export default createRouter({
+  history,
+  routes ,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return {
+        el: to.hash,
+        behavior: "smooth",
+      };
+    }
+  }
+})

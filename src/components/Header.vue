@@ -6,22 +6,22 @@
   <header class="header">
     <div class="container py-4 lg:py-6">
       <div class="flex justify-between items-center">
-        <router-link to="/">
-          <img src="../assets/img/logo_goodtogo.svg" class="logo" alt="GoodToGo logo" />
+        <router-link to="/#top">
+          <img src="/img/logo_goodtogo.svg" class="logo" alt="GoodToGo logo" />
         </router-link>
         <nav class="flex items-center gap-8">
           <ul class="primary-menu">
             <li>
-              <router-link to="/service">
+              <router-link to="/service/#top">
                 服務內容<span class="material-symbols-rounded">arrow_drop_down</span>
               </router-link>
               <ul class="dropdown-menu">
-                <li><router-link to="/service">循環杯</router-link></li>
-                <li><router-link to="/service">專業清洗</router-link></li>
+                <li><router-link to="/service/#cup">循環杯</router-link></li>
+                <li><router-link to="/service/#clean">專業清洗</router-link></li>
               </ul>
             </li>
           </ul>
-          <router-link to="/" class="btn btn-bg-yellow">加入會員</router-link>
+          <router-link to="/#top" class="btn btn-bg-yellow">加入會員</router-link>
         </nav>
       </div>
     </div>
@@ -33,7 +33,6 @@
   max-width: 205px;
 }
 .router-link-active {
-  pointer-events: none;
 }
 .primary-menu {
   @apply flex items-center gap-4

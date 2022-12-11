@@ -11,6 +11,20 @@ export default {
   mounted(){
     const _t = this;
 
+    // 取得目前使用數
+    axios.get('https://app.goodtogo.tw/test/containers/globalUsedAmount')
+    .then(function (response) {
+      // handle success
+      _t.totalCount = +response.data
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
     // 監聽counter滑入事件
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -25,19 +39,6 @@ export default {
     );
     observer.observe(this.$refs.counter);
     
-    // 取得目前使用數
-    axios.get('https://app.goodtogo.tw/test/containers/globalUsedAmount')
-    .then(function (response) {
-      // handle success
-      _t.totalCount = +response.data
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
   },
   methods: {
     starCounter(t_counter, speed = 200, start = 0) {
@@ -69,7 +70,7 @@ export default {
         提供可重複使用的外帶循環容器，<br />
         享受美食，不用多產生一個垃圾！
       </p>
-      <a href="" class="btn btn-border-yellow">開始使用</a>
+      <router-link to="/service/#rent" class="btn btn-border-yellow">開始使用</router-link>
     </div>
   </section>
   <section id="intro">
@@ -83,16 +84,16 @@ export default {
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">品質把關 <span class="font-extrabold">好安心</span></h3>
             <p class="mb-2">容器選用食品級PP材質，符合食藥署《食品器具容器包裝衛生標準》。清洗委託專業清洗廠，符合衛福部《餐具清洗良好作業指引》，每季SGS檢驗合格。</p>
             <p class="flex gap-4 flex-wrap">
-              <router-link to="/service/" class="link link-blue">容器介紹</router-link>
-              <router-link to="/service/" class="link link-blue">專業清洗流程</router-link>
-              <router-link to="/service/" class="link link-blue">SGS檢驗報告</router-link>
+              <router-link to="/service/#cup" class="link link-blue">容器介紹</router-link>
+              <router-link to="/service/#clean" class="link link-blue">專業清洗流程</router-link>
+              <router-link to="/service/#safe" class="link link-blue">SGS檢驗報告</router-link>
             </p>
           </div>
           <div class="mb-5">
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">多點借還 <span class="font-extrabold">好方便</span></h3>
             <p class="mb-2">與全台餐飲店家合作，外帶外送直接使用循環容器盛裝你的餐點，享用完畢後，歸還到任一合作店家或自助歸還站。這裡借，那裡還，就是這麼方便！，每季SGS檢驗合格。</p>
             <p class="flex gap-4 flex-wrap">
-              <router-link to="/service/" class="link link-blue">好盒器站點</router-link>
+              <router-link to="/service/#map" class="link link-blue">好盒器站點</router-link>
             </p>
           </div>
           <div>
@@ -114,7 +115,7 @@ export default {
             <h3 class="text-3xl font-extrabold">0<br />註冊</h3>
             <p>加入好盒器LINE好友<br />驗證手機號碼</p>
           </div>
-          <p><router-link to="/service/" class="link link-yellow">會員權益</router-link></p>
+          <p><router-link to="/service/#member" class="link link-yellow">會員權益</router-link></p>
         </div>
         <span class="material-symbols-rounded text-4xl mb-6 text-w-half">arrow_right</span>
         <div class="text-center">
@@ -122,7 +123,7 @@ export default {
             <h3 class="text-3xl font-extrabold">1<br />借用</h3>
             <p>外帶時選用循環容器<br />並登記借出</p>
           </div>
-          <p><router-link to="/service/" class="link link-yellow">４種借用方式</router-link></p>
+          <p><router-link to="/service/#rent" class="link link-yellow">４種借用方式</router-link></p>
         </div>
         <span class="material-symbols-rounded text-4xl mb-6 text-w-half">arrow_right</span>
         <div class="text-center">
@@ -130,7 +131,7 @@ export default {
             <h3 class="text-3xl font-extrabold">2<br />歸還</h3>
             <p>歸還到任一合作店家<br />或自助歸還站</p>
           </div>
-          <p><router-link to="/service/" class="link link-yellow">２種歸還方式</router-link></p>
+          <p><router-link to="/service/#return" class="link link-yellow">２種歸還方式</router-link></p>
         </div>
         <span class="material-symbols-rounded text-4xl mb-6 text-w-half">arrow_right</span>
         <div class="text-center">
@@ -153,7 +154,7 @@ export default {
         <a class="w-28"><img src="/img/logo_partners/kfc_2x.png" alt="KFC 肯德基" /></a>
         <a class="w-28"><img src="/img/logo_partners/foodpanda_2x.png" alt="foodpanda" /></a>
       </div>
-      <p class="text-center"><router-link to="/service/" class="link link-yellow">所有合作店家</router-link></p>
+      <p class="text-center"><router-link to="/service/#map" class="link link-yellow">所有合作店家</router-link></p>
     </div>
   </section>
   <section id="total-reduce">
@@ -163,7 +164,7 @@ export default {
           <span class="total-text" :data-target="totalCount" ref="counter">0</span><br />
         一次性容器
       </h2>
-      <router-link to="/" class="btn btn-bg-yellow">加入我們的行列</router-link>
+      <router-link to="/service/#rent" class="btn btn-bg-yellow">加入我們的行列</router-link>
     </div>
   </section>
 </template>

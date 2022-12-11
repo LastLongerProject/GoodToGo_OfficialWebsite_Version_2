@@ -3,6 +3,9 @@
 @tailwind utilities;
 :root {
     --height-header: 84px;
+    --color-yellow: #FFD84B;
+    --color-blue: #40B9D8;
+    --color-blue-250: #9FDCEC;
 }
 @media screen and (min-width: 768px) {
     :root {
@@ -26,17 +29,13 @@ body {
 
 /* text */
 .highlighter {
-    @apply relative inline-block
+    background-image: linear-gradient(to bottom, transparent, transparent 30%, var(--color-yellow) 30%, var(--color-yellow));
+    @apply relative inline
 }
-.highlighter::before {
-    content: '';
-    height: 1em;
-    z-index: -1;
-    @apply bg-yellow w-full absolute bottom-0
+.highlighter.highlighter-blue-250 {
+    background-image: linear-gradient(to bottom, transparent, transparent 30%, var(--color-blue-250) 30%, var(--color-blue-250));
 }
-.highlighter-blue-250::before {
-    @apply bg-blue-250
-}
+
 .text-w-half {
     width: 0.5em;
     text-indent: -0.25em;
@@ -116,6 +115,12 @@ a.link.link-blue:hover {
 .border-13 {
     border-width: 13px;
     border-style: solid;
+}
+
+/* container */
+.container-wide {
+    max-width: 1160px;
+    margin: 0 auto;
 }
 
 /* card */
