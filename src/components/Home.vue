@@ -57,6 +57,9 @@ export default {
 </script>
 
 <template>
+  <div class="anime-bg">
+
+  </div>
   <section id="top" class="sec-top">
     <div class="main-bg">
       <img src="/img/home_banner.jpg"/>
@@ -150,9 +153,9 @@ export default {
         <h2 class="text-4xl font-extrabold highlighter">響應夥伴</h2>
       </div>
       <div class="brands-list mb-8">
-        <a class="w-28"><img src="/img/logo_partners/mcd_2x.png" alt="McDonald 麥當勞" /></a>
-        <a class="w-28"><img src="/img/logo_partners/kfc_2x.png" alt="KFC 肯德基" /></a>
-        <a class="w-28"><img src="/img/logo_partners/foodpanda_2x.png" alt="foodpanda" /></a>
+        <a class="w-14 md:w-28"><img src="/img/logo_partners/mcd_2x.png" alt="McDonald 麥當勞" /></a>
+        <a class="w-14 md:w-28"><img src="/img/logo_partners/kfc_2x.png" alt="KFC 肯德基" /></a>
+        <a class="w-14 md:w-28"><img src="/img/logo_partners/foodpanda_2x.png" alt="foodpanda" /></a>
       </div>
       <p class="text-center"><router-link to="/service/#map" class="link link-yellow">所有合作店家</router-link></p>
     </div>
@@ -183,7 +186,7 @@ export default {
   @apply w-full h-full object-cover
 }
 .brands-list {
-  @apply flex flex-wrap items-center justify-center gap-10 max-w-2xl mx-auto
+  @apply flex flex-wrap items-center justify-center gap-5 md:gap-10 max-w-2xl mx-auto
 }
 .total-text {
   @apply text-4xl sm:text-6xl md:text-8xl text-blue font-extrabold mb-8 inline-block
