@@ -96,21 +96,21 @@ export default {
             <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">食品器具容器包裝衛生標準</span></h3>
             <p class="mb-2 pt-2">通過SGS產品檢驗，符合中華民國食品器具容器包裝衛生標準。通過SGS產品耐熱性測試，在 120°C 環境下，產品功能正常。</p>
             <p class="flex gap-4 flex-wrap">
-              <a href="https://drive.google.com/drive/folders/16PbSro8ByD3RlrUAetShO1UJzNf5kFMM" target="_blank" class="link link-blue">SGS食器檢驗報告</a>
+              <a href="https://drive.google.com/drive/folders/1ScrSe6YH9EbWjLETPmUBypC08PaDyTvm?usp=sharing" target="_blank" class="link link-blue">SGS食器檢驗報告</a>
             </p>
           </div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">餐具清洗良好作業指引</span></h3>
             <p class="mb-2 pt-2">每季委由SGS檢驗清洗殘留物，合格率100%<br />確保容器清洗後之餐具無脂肪、澱粉、大腸桿菌、洗潔劑之殘留</p>
             <p class="flex gap-4 flex-wrap">
-              <a href="https://drive.google.com/drive/folders/16PbSro8ByD3RlrUAetShO1UJzNf5kFMM" target="_blank" class="link link-blue">SGS清洗檢驗報告</a>
+              <a href="https://drive.google.com/drive/folders/1SUgi7vbuEeMo5tnajfQZDmV2IsAXroFo?usp=sharing" target="_blank" class="link link-blue">SGS清洗檢驗報告</a>
             </p>
           </div>
           <div class="">
             <h3 class="text-3xl highlighter highlighter-blue-250">投保 <span class="font-extrabold">產品責任險</span></h3>
             <p class="mb-2 pt-2">根據衛生福利部《食品安全衛生管理法》授權訂定之《食品業者投保產品責任保險》規定，定期投保產品責任保險</p>
             <p class="flex gap-4 flex-wrap">
-              <a href="https://drive.google.com/drive/folders/16PbSro8ByD3RlrUAetShO1UJzNf5kFMM" target="_blank" class="link link-blue">產品責任保險單</a>
+              <a href="https://drive.google.com/drive/folders/1SOb-KkY213Ng5vOyIjdTs2GMms_zI4av?usp=sharing" target="_blank" class="link link-blue">產品責任保險單</a>
             </p>
           </div>
         </div>
@@ -340,21 +340,21 @@ export default {
       </div>
       <div class="flex items-end justify-center gap-1 md:gap-5">
         <div class="text-center w-1/4">
-          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">店鋪歸還</h3>
-          <button class="collapse-toggler toggler-circle active" data-target="#return_01" data-collapse-group="return">
+          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">自助歸還<span class="hidden sm:inline">站</span></h3>
+          <button class="collapse-toggler toggler-circle active" data-target="#return_02" data-collapse-group="return">
             <div class="img-rounded border-3 border-white relative">
-              <img src="/img/info_rent_takeout.jpg"/>
-              <div class="img-tape">歸還到<br />任一合作店家</div>
+              <img src="/img/info_return_machine.jpg"/>
+              <div class="img-tape">歸還到<br />24H自助歸還站</div>
             </div>
             <span class="material-symbols-rounded">arrow_drop_down</span>
           </button>
         </div>
         <div class="text-center w-1/4">
-          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">自助歸還<span class="hidden sm:inline">站</span></h3>
-          <button class="collapse-toggler toggler-circle" data-target="#return_02" data-collapse-group="return">
+          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">店鋪歸還</h3>
+          <button class="collapse-toggler toggler-circle" data-target="#return_01" data-collapse-group="return">
             <div class="img-rounded border-3 border-white relative">
-              <img src="/img/info_return_machine.jpg"/>
-              <div class="img-tape">歸還到<br />24H自助歸還站</div>
+              <img src="/img/info_rent_takeout.jpg"/>
+              <div class="img-tape">歸還到<br />任一合作店家</div>
             </div>
             <span class="material-symbols-rounded">arrow_drop_down</span>
           </button>
@@ -363,7 +363,7 @@ export default {
     </div>
     <div class="container-wide pt-8">
       <div class="collapse-list relative">
-        <div id="return_01" class="collapse-block card-drop active" data-collapse-group="return">
+        <div id="return_01" class="collapse-block card-drop" data-collapse-group="return">
           <div class="flex flex-wrap flex-col md:flex-row justify-center gap-4 lg:gap-8">
             <div class="flex">
               <h4 class="text-3xl text-yellow font-extrabold leading-none mr-2">1</h4>
@@ -385,7 +385,7 @@ export default {
             </div>
           </div>
         </div>
-        <div id="return_02" class="collapse-block card-drop" data-collapse-group="return">
+        <div id="return_02" class="collapse-block card-drop active" data-collapse-group="return">
           <div class="flex flex-wrap flex-col md:flex-row justify-center gap-4 lg:gap-8">
             <div class="flex">
               <h4 class="text-3xl text-yellow font-extrabold leading-none mr-2">1</h4>
