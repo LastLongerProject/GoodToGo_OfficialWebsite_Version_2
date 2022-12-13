@@ -92,14 +92,14 @@ export default {
           <img src="/img/info_report.png"/>
         </div>
         <div>
-          <div class="mb-5">
+          <div class="mb-8 md:mb-5">
             <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">食品器具容器包裝衛生標準</span></h3>
             <p class="mb-2 pt-2">通過SGS產品檢驗，符合中華民國食品器具容器包裝衛生標準。通過SGS產品耐熱性測試，在 120°C 環境下，產品功能正常。</p>
             <p class="flex gap-4 flex-wrap">
               <a href="https://drive.google.com/drive/folders/16PbSro8ByD3RlrUAetShO1UJzNf5kFMM" target="_blank" class="link link-blue">SGS食器檢驗報告</a>
             </p>
           </div>
-          <div class="mb-5">
+          <div class="mb-8 md:mb-5">
             <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">餐具清洗良好作業指引</span></h3>
             <p class="mb-2 pt-2">每季委由SGS檢驗清洗殘留物，合格率100%<br />確保容器清洗後之餐具無脂肪、澱粉、大腸桿菌、洗潔劑之殘留</p>
             <p class="flex gap-4 flex-wrap">
@@ -139,12 +139,12 @@ export default {
     </div>
   </section>
   <section id="rent">
-    <div class="container-wide pt-24 pb-16">
+    <div class="container-wide pt-24">
       <div class="text-center mb-24">
         <h2 class="text-4xl font-extrabold highlighter">４種借用方式</h2>
       </div>
-      <div class="flex items-center justify-center gap-1 md:gap-5">
-        <div class="text-center">
+      <div class="flex items-end justify-center gap-1 md:gap-5">
+        <div class="text-center w-1/4">
           <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">店舖外帶</h3>
           <button class="collapse-toggler toggler-circle toggler-circle-blue active" data-target="#rent_01" data-collapse-group="rent">
             <div class="img-rounded border-3 border-white relative">
@@ -154,8 +154,8 @@ export default {
             <span class="material-symbols-rounded">arrow_drop_down</span>
           </button>
         </div>
-        <div class="text-center">
-          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">自助借杯站</h3>
+        <div class="text-center w-1/4">
+          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">自助借杯<span class="hidden sm:inline">站</span></h3>
           <button class="collapse-toggler toggler-circle toggler-circle-blue" data-target="#rent_02" data-collapse-group="rent">
             <div class="img-rounded border-3 border-white relative">
               <img src="/img/info_rent_machine.jpg"/>
@@ -164,7 +164,7 @@ export default {
             <span class="material-symbols-rounded">arrow_drop_down</span>
           </button>
         </div>
-        <div class="text-center">
+        <div class="text-center w-1/4">
           <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">外送平台</h3>
           <button class="collapse-toggler toggler-circle toggler-circle-blue" data-target="#rent_03" data-collapse-group="rent">
             <div class="img-rounded border-3 border-white relative">
@@ -174,7 +174,7 @@ export default {
             <span class="material-symbols-rounded">arrow_drop_down</span>
           </button>
         </div>
-        <div class="text-center">
+        <div class="text-center w-1/4">
           <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">電話外送</h3>
           <button class="collapse-toggler toggler-circle toggler-circle-blue" data-target="#rent_04" data-collapse-group="rent">
             <div class="img-rounded border-3 border-white relative">
@@ -187,7 +187,7 @@ export default {
       </div>
     </div>
     <div class="container-wide pt-8 pb-16">
-      <div class="collapse-list">
+      <div class="collapse-list relative">
         <div id="rent_01" class="collapse-block card-drop card-drop-blue active" data-collapse-group="rent">
           <div class="flex flex-wrap flex-col md:flex-row justify-center gap-4 lg:gap-8">
             <div class="flex">
@@ -338,8 +338,8 @@ export default {
       <div class="text-center mb-24">
         <h2 class="text-4xl font-extrabold highlighter">２種歸還方式</h2>
       </div>
-      <div class="flex items-center justify-center gap-5">
-        <div class="text-center">
+      <div class="flex items-end justify-center gap-1 md:gap-5">
+        <div class="text-center w-1/4">
           <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">店鋪歸還</h3>
           <button class="collapse-toggler toggler-circle active" data-target="#return_01" data-collapse-group="return">
             <div class="img-rounded border-3 border-white relative">
@@ -349,8 +349,8 @@ export default {
             <span class="material-symbols-rounded">arrow_drop_down</span>
           </button>
         </div>
-        <div class="text-center">
-          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">自助歸還站</h3>
+        <div class="text-center w-1/4">
+          <h3 class="text-base sm:text-xl lg:text-3xl font-extrabold mb-4">自助歸還<span class="hidden sm:inline">站</span></h3>
           <button class="collapse-toggler toggler-circle" data-target="#return_02" data-collapse-group="return">
             <div class="img-rounded border-3 border-white relative">
               <img src="/img/info_return_machine.jpg"/>
@@ -362,7 +362,7 @@ export default {
       </div>
     </div>
     <div class="container-wide pt-8">
-      <div class="collapse-list">
+      <div class="collapse-list relative">
         <div id="return_01" class="collapse-block card-drop active" data-collapse-group="return">
           <div class="flex flex-wrap flex-col md:flex-row justify-center gap-4 lg:gap-8">
             <div class="flex">
@@ -476,6 +476,8 @@ export default {
 }
 .toggler-circle.active {
   border-width: 6px;
+  margin-top: 2px;
+  margin-bottom: 5px;
 }
 .toggler-circle .material-symbols-rounded {
   font-size: 60px;
@@ -492,6 +494,7 @@ export default {
 @media screen and (min-width: 768px) {
   .toggler-circle.active {
     border-width: 13px;
+    margin: 0;
   }
   .toggler-circle .material-symbols-rounded {
     font-size: 120px;
@@ -523,10 +526,19 @@ export default {
   transform: scale(1.1);
 }
 .collapse-block {
-  display: none;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  @apply inset-x-0 top-0 m-auto
 }
 .collapse-block.active {
-  display: block;
+  position: relative;
+  pointer-events: initial;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.4s ease 0.2s;
 }
 .card-drop {
   width: fit-content;
@@ -541,7 +553,9 @@ export default {
   box-shadow: 0px 11px 0px var(--color-blue);
 }
 @media screen and (min-width: 768px) {
-  
+  .toggler-circle:hover img {
+    transform: none;
+  }
 }
 @media screen and (min-width: 1024px) {
   .card-drop {
