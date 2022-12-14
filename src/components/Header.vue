@@ -67,7 +67,7 @@ export default {
     <div class="container py-2 md:py-4 lg:py-6">
       <div class="md:flex justify-between items-center">
         <div class="relative">
-          <router-link to="/#top">
+          <router-link to="/">
             <img src="/img/logo_goodtogo.svg" class="logo" alt="GoodToGo logo" />
           </router-link>
           <button class="header-toggler md:hidden" @click="toggleHeader"><span class="material-symbols-rounded text-3xl leading-none">menu</span></button>
@@ -76,7 +76,7 @@ export default {
         <nav class="navbar">
           <ul class="primary-menu">
             <li>
-              <router-link to="/service/#top">
+              <router-link to="/service/">
                 服務內容<span class="material-symbols-rounded">arrow_drop_down</span>
               </router-link>
               <ul class="dropdown-menu">
@@ -90,7 +90,7 @@ export default {
               </ul>
             </li>
           </ul>
-          <router-link to="/#top" class="btn btn-bg-yellow">加入會員</router-link>
+          <router-link to="/" class="btn btn-bg-yellow">加入會員</router-link>
         </nav>
       </div>
     </div>

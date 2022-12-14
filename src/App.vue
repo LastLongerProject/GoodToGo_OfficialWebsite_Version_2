@@ -8,7 +8,13 @@ import Footer from './components/Footer.vue'
 <template>
   <Header></Header>
   <main class="pt-header">
-    <router-view />
+    <router-view v-slot="{ Component, route }">
+      <component :is="Component" :key="route.path" />
+    </router-view>
   </main>
   <Footer></Footer>
 </template>
+
+<style scoped>
+
+</style>

@@ -22,11 +22,19 @@ export default createRouter({
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
-    } else {
+    } else if (to.name != from.name && to.hash) {
+      return {
+        el: to.hash,
+      }
+    } else if (to.hash) {
       return {
         el: to.hash,
         behavior: "smooth",
-      };
+      }
+    } else {
+      return {
+        top: 0,
+      }
     }
   }
 })
