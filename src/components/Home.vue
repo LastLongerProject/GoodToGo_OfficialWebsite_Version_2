@@ -57,8 +57,12 @@ export default {
 </script>
 
 <template>
-  <div class="anime-bg">
-
+  <div class="anime-bg absolute inset-0 overflow-hidden z-0 pointer-events-none">
+    <div id="capsule_01" class="capsule bg-blue"></div>
+    <div id="capsule_02" class="capsule bg-yellow"></div>
+    <div id="capsule_03" class="capsule bg-blue"></div>
+    <div id="capsule_04" class="capsule bg-yellow"></div>
+    <div id="capsule_05" class="capsule bg-yellow"></div>
   </div>
   <section id="top" class="sec-top">
     <div class="main-bg">
@@ -77,7 +81,7 @@ export default {
     </div>
   </section>
   <section id="intro">
-    <div class="container pt-32">
+    <div class="container pt-32 relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="img-rounded max-w-lg border-13 border-white mx-auto">
           <img src="/img/home_cups.jpg"/>
@@ -87,16 +91,16 @@ export default {
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">品質把關 <span class="font-extrabold">好安心</span></h3>
             <p class="mb-2 pt-2">容器選用食品級PP材質，符合食藥署《食品器具容器包裝衛生標準》。清洗委託專業清洗廠，符合衛福部《餐具清洗良好作業指引》，每季SGS檢驗合格。</p>
             <p class="flex gap-4 flex-wrap">
-              <router-link to="/service/#cup" class="link link-blue">容器介紹</router-link>
-              <router-link to="/service/#clean" class="link link-blue">專業清洗流程</router-link>
-              <router-link to="/service/#safe" class="link link-blue">SGS檢驗報告</router-link>
+              <router-link to="/service/#cup" class="link link-white">容器介紹</router-link>
+              <router-link to="/service/#clean" class="link link-white">專業清洗流程</router-link>
+              <router-link to="/service/#safe" class="link link-white">SGS檢驗報告</router-link>
             </p>
           </div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">多點借還 <span class="font-extrabold">好方便</span></h3>
             <p class="mb-2 pt-2">與全台餐飲店家合作，外帶外送直接使用循環容器盛裝你的餐點，享用完畢後，歸還到任一合作店家或自助歸還站。這裡借，那裡還，就是這麼方便！，每季SGS檢驗合格。</p>
             <p class="flex gap-4 flex-wrap">
-              <router-link to="/service/#map" class="link link-blue">好盒器站點</router-link>
+              <router-link to="/service/#map" class="link link-white">好盒器站點</router-link>
             </p>
           </div>
           <div>
@@ -108,7 +112,7 @@ export default {
     </div>
   </section>
   <section id="how">
-    <div class="container pt-32">
+    <div class="container pt-32 pb-24 relative z-10">
       <div class="text-center mb-14">
         <h2 class="text-4xl font-extrabold highlighter">如何使用</h2>
       </div>
@@ -118,7 +122,7 @@ export default {
             <h3 class="text-3xl font-extrabold">0<br />註冊</h3>
             <p>加入好盒器LINE好友<br />驗證手機號碼</p>
           </div>
-          <p><router-link to="/service/#member" class="link link-yellow">會員權益</router-link></p>
+          <p><router-link to="/service/#member" class="link link-white">會員權益</router-link></p>
         </div>
         <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
         <div class="text-center">
@@ -126,7 +130,7 @@ export default {
             <h3 class="text-3xl font-extrabold">1<br />借用</h3>
             <p>外帶時選用循環容器<br />並登記借出</p>
           </div>
-          <p><router-link to="/service/#rent" class="link link-yellow">４種借用方式</router-link></p>
+          <p><router-link to="/service/#rent" class="link link-white">４種借用方式</router-link></p>
         </div>
         <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
         <div class="text-center">
@@ -134,7 +138,7 @@ export default {
             <h3 class="text-3xl font-extrabold">2<br />歸還</h3>
             <p>歸還到任一合作店家<br />或自助歸還站</p>
           </div>
-          <p><router-link to="/service/#return" class="link link-yellow">２種歸還方式</router-link></p>
+          <p><router-link to="/service/#return" class="link link-white">２種歸還方式</router-link></p>
         </div>
         <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
         <div class="text-center">
@@ -192,4 +196,44 @@ export default {
   @apply text-4xl sm:text-6xl md:text-8xl text-blue font-extrabold mb-8 inline-block
 }
 
+/* anime bg */
+.capsule {
+  @apply rounded-full absolute
+}
+#capsule_01 {
+  height: 377px;
+  width: 100%;
+  left: -58%;
+  top: 37vh;
+  transform: rotate(-30deg);
+  transform-origin: 80% 50%;
+}
+#capsule_02 {
+  height: 144px;
+  width: 233px;
+  left: 27%;
+  top: 63vh;
+  transform: rotate(-30deg)
+}
+#capsule_03 {
+  height: 610px;
+  width: 100%;
+  right: -36%;
+  top: 114vh;
+  transform: rotate(-30deg);
+  transform-origin: 20% 50%;
+}
+#capsule_04 {
+  height: 233px;
+  width: 377px;
+  left: 4%;
+  top: 136vh;
+  transform: rotate(-30deg)
+}
+#capsule_05 {
+  height: 377px;
+  width: 120%;
+  left: -23%;
+  top: 228vh;
+}
 </style>
