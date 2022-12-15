@@ -7,7 +7,7 @@ import Footer from './components/Footer.vue'
 
 <template>
   <Header></Header>
-  <main class="pt-header">
+  <main class="pt-header relative">
     <router-view v-slot="{ Component, route }">
       <component :is="Component" :key="route.path" />
     </router-view>
