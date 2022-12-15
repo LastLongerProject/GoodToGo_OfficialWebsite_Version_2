@@ -89,7 +89,7 @@ export default {
         <div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">品質把關 <span class="font-extrabold">好安心</span></h3>
-            <p class="mb-2 pt-2">容器選用食品級PP材質，符合食藥署《食品器具容器包裝衛生標準》。清洗委託專業清洗廠，符合衛福部《餐具清洗良好作業指引》，每季SGS檢驗合格。</p>
+            <p class="mb-2 pt-2 text-justify">容器選用食品級PP材質，符合食藥署《食品器具容器包裝衛生標準》。清洗委託專業清洗廠，符合衛福部《餐具清洗良好作業指引》，每季SGS檢驗合格。</p>
             <p class="flex gap-4 flex-wrap">
               <router-link to="/service/#cup" class="link link-white">容器介紹</router-link>
               <router-link to="/service/#clean" class="link link-white">專業清洗流程</router-link>
@@ -98,14 +98,14 @@ export default {
           </div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">多點借還 <span class="font-extrabold">好方便</span></h3>
-            <p class="mb-2 pt-2">與全台餐飲店家合作，外帶外送直接使用循環容器盛裝你的餐點，享用完畢後，歸還到任一合作店家或自助歸還站。這裡借，那裡還，就是這麼方便！，每季SGS檢驗合格。</p>
+            <p class="mb-2 pt-2 text-justify">與全台餐飲店家合作，外帶外送直接使用循環容器盛裝你的餐點，享用完畢後，歸還到任一合作店家或自助歸還站。這裡借，那裡還，就是這麼方便！，每季SGS檢驗合格。</p>
             <p class="flex gap-4 flex-wrap">
               <router-link to="/service/#map" class="link link-white">好盒器站點</router-link>
             </p>
           </div>
           <div>
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">享受美食 <span class="font-extrabold">零廢棄</span></h3>
-            <p class="mb-2 pt-2">享受美食也可以不垃圾，循環容器透過清洗取代拋棄，邀請你一起選擇對環境更好的外帶方式！</p>
+            <p class="mb-2 pt-2 text-justify">享受美食也可以不垃圾，循環容器透過清洗取代拋棄，邀請你一起選擇對環境更好的外帶方式！</p>
           </div>
         </div>
       </div>

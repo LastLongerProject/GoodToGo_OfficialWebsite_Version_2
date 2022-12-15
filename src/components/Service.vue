@@ -94,21 +94,21 @@ export default {
         <div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">食品器具容器包裝衛生標準</span></h3>
-            <p class="mb-2 pt-2">通過SGS產品檢驗，符合中華民國食品器具容器包裝衛生標準。通過SGS產品耐熱性測試，在 120°C 環境下，產品功能正常。</p>
+            <p class="mb-2 pt-2 text-justify">通過SGS產品檢驗，符合中華民國食品器具容器包裝衛生標準。通過SGS產品耐熱性測試，在 120°C 環境下，產品功能正常。</p>
             <p class="flex gap-4 flex-wrap">
               <a href="https://drive.google.com/drive/folders/1ScrSe6YH9EbWjLETPmUBypC08PaDyTvm?usp=sharing" target="_blank" class="link link-blue">SGS食器檢驗報告</a>
             </p>
           </div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">餐具清洗良好作業指引</span></h3>
-            <p class="mb-2 pt-2">每季委由SGS檢驗清洗殘留物，合格率100%<br />確保容器清洗後之餐具無脂肪、澱粉、大腸桿菌、洗潔劑之殘留</p>
+            <p class="mb-2 pt-2 text-justify">每季委由SGS檢驗清洗殘留物，合格率100%<br />確保容器清洗後之餐具無脂肪、澱粉、大腸桿菌、洗潔劑之殘留</p>
             <p class="flex gap-4 flex-wrap">
               <a href="https://drive.google.com/drive/folders/1SUgi7vbuEeMo5tnajfQZDmV2IsAXroFo?usp=sharing" target="_blank" class="link link-blue">SGS清洗檢驗報告</a>
             </p>
           </div>
           <div class="">
             <h3 class="text-3xl highlighter highlighter-blue-250">投保 <span class="font-extrabold">產品責任險</span></h3>
-            <p class="mb-2 pt-2">根據衛生福利部《食品安全衛生管理法》授權訂定之《食品業者投保產品責任保險》規定，定期投保產品責任保險</p>
+            <p class="mb-2 pt-2 text-justify">根據衛生福利部《食品安全衛生管理法》授權訂定之《食品業者投保產品責任保險》規定，定期投保產品責任保險</p>
             <p class="flex gap-4 flex-wrap">
               <a href="https://drive.google.com/drive/folders/1SOb-KkY213Ng5vOyIjdTs2GMms_zI4av?usp=sharing" target="_blank" class="link link-blue">產品責任保險單</a>
             </p>
@@ -520,6 +520,7 @@ export default {
   transform: translateY(0px);
 }
 .toggler-circle img {
+  pointer-events: none;
   transition: all 0.4s ease;
 }
 .toggler-circle:hover img {
