@@ -81,7 +81,7 @@ export default {
     </div>
   </section>
   <section id="intro">
-    <div class="container pt-32 relative z-10">
+    <div class="container pt-24 md:pt-32 relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="img-rounded max-w-lg border-13 border-white mx-auto">
           <img src="/img/home_cups.jpg"/>
@@ -112,7 +112,7 @@ export default {
     </div>
   </section>
   <section id="how">
-    <div class="container pt-32 pb-24 relative z-10">
+    <div class="container pt-32 md:pb-24 relative z-10">
       <div class="text-center mb-14">
         <h2 class="text-4xl font-extrabold highlighter">如何使用</h2>
       </div>
@@ -152,7 +152,7 @@ export default {
     </div>
   </section>
   <section id="partner">
-    <div class="container pt-32">
+    <div class="container pt-24 md:pt-32">
       <div class="text-center mb-14">
         <h2 class="text-4xl font-extrabold highlighter">響應夥伴</h2>
       </div>
@@ -178,15 +178,17 @@ export default {
 
 <style scoped>
 .sec-top {
-  height: calc(100vh - var(--height-header));
-  padding-top: 12vh;
-  @apply relative flex items-center
+  min-height: calc(100vh - var(--height-header));
+  padding-top: 160px;
+  padding-bottom: 24px;
+  @apply relative flex items-end
 }
 .main-bg {
   z-index: -1;
   @apply absolute inset-0 overflow-hidden
 }
 .main-bg img {
+  object-position: 80% 50%;
   @apply w-full h-full object-cover
 }
 .brands-list {
@@ -201,39 +203,135 @@ export default {
   @apply rounded-full absolute
 }
 #capsule_01 {
-  height: 377px;
-  width: 100%;
-  left: -58%;
-  top: 37vh;
-  transform: rotate(-30deg);
-  transform-origin: 80% 50%;
+  width: 320px;
+  height: calc(100% + 600px);
+  left: 40%;
+  top: calc(100vh - 272px);
+  transform: rotate(60deg);
+  transform-origin: 50% 0%;
 }
 #capsule_02 {
-  height: 144px;
-  width: 233px;
-  left: 27%;
-  top: 63vh;
-  transform: rotate(-30deg)
+  width: 100px;
+  aspect-ratio: 233 / 377;
+  left: 62%;
+  top: calc(100vh - 165px);
+  transform: rotate(60deg)
 }
 #capsule_03 {
-  height: 610px;
-  width: 100%;
-  right: -36%;
-  top: 114vh;
+  height: 709px;
+  width: calc(100% + 900px);
+  right: 0;
+  left: -46%;
+  margin: auto;
+  top: calc(100vh + 637px);
   transform: rotate(-30deg);
-  transform-origin: 20% 50%;
+  transform-origin: 0% 50%;
 }
 #capsule_04 {
-  height: 233px;
-  width: 377px;
+  width: 190px;
+  aspect-ratio: 233 / 377;
   left: 4%;
-  top: 136vh;
-  transform: rotate(-30deg)
+  top: calc(100vh + 90px);
+  transform: rotate(60deg)
 }
 #capsule_05 {
-  height: 377px;
-  width: 120%;
-  left: -23%;
-  top: 228vh;
+  height: 1100px;
+  width: 316px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: calc(100vh + 1372px);
+}
+@media screen and (orientation: landscape) {
+  #capsule_01 {
+    left: 28%;
+    top: calc(100vh - 110px);
+  }
+  #capsule_02 {
+    left: 45%;
+    top: calc(100vh - 20px);
+  }
+  #capsule_03 {
+    right: 0;
+    left: 0;
+    top: calc(100vh + 830px);
+  }
+  #capsule_04 {
+    left: 10%;
+    top: calc(100vh + 300px);
+  }
+  #capsule_05 {
+    top: calc(100vh + 1572px);
+  }
+}
+@media screen and (min-width: 768px) {
+  #capsule_01 {
+    width: 377px;
+    left: 28%;
+    top: calc(100vh - 300px);
+  }
+  #capsule_02 {
+    width: 144px;
+    left: 36%;
+    top: calc(100vh - 165px);
+  }
+  #capsule_03 {
+    height: 610px;
+    right: 0;
+    left: 0;
+    top: calc(100vh + 778px);
+  }
+  #capsule_04 {
+    width: 233px;
+    left: 12%;
+    top: calc(100vh + 195px);
+  }
+  #capsule_05 {
+    height: 310px;
+    width: 120%;
+    left: -23%;
+    top: calc(100vh + 1500px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  #capsule_01 {
+    left: 26%;
+    top: calc(100vh - 320px);
+  }
+  #capsule_02 {
+    left: 31%;
+    top: calc(100vh - 184px);
+  }
+  #capsule_03 {
+    left: 40%;
+    top: calc(100vh + 237px);
+  }
+  #capsule_04 {
+    left: 4%;
+    top: calc(100vh + 200px);
+  }
+  #capsule_05 {
+    top: calc(100vh + 920px);
+  }
+}
+@media screen and (min-width: 1280px) {
+  #capsule_01 {
+    top: calc(100vh - 326px);
+  }
+  #capsule_02 {
+    left: 29%;
+    top: calc(100vh - 200px);
+  }
+  #capsule_03 {
+    left: 40%;
+    top: calc(100vh + 237px);
+  }
+  #capsule_04 {
+    left: 8%;
+    top: calc(100vh + 200px);
+  }
+  #capsule_05 {
+    top: calc(100vh + 920px);
+  }
 }
 </style>
