@@ -30,7 +30,8 @@ module.exports = {
       },
       black: '#1B1E1F',
       gray: {
-        DEFAULT: '#D9D9D9' // 500
+        DEFAULT: '#D9D9D9', // 500
+        900: '#6B6B6B'
       },
       blue: {
         DEFAULT: '#40B9D8', // 500
@@ -42,8 +43,15 @@ module.exports = {
         250: '#FFECA5',
         700: '#FFC800',
       },
+      orange: {
+        DEFAULT: '#DF6B34'
+      },
+      green: {
+        DEFAULT: '#3CB371'
+      }
     },
     fontSize: {
+      '2xs': ['13px', '20px'],
       'xs': ['14px', '20px'],
       'sm': ['16px', '24px'],
       'base': ['18px', '26px'],
