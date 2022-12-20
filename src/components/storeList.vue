@@ -57,12 +57,12 @@ export default {
 
 <template>
     <div>
-        <ul class="grid grid-cols-3 gap-6">
+        <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <li v-for="(store, index) in showList" class="flex gap-3">
                 <div class="store-photo-wrap">
                     <img :src="store.photo" />
                 </div>
-                <div class="store-info">
+                <div class="flex-shrink overflow-hidden">
                     <h4 class="text-lg font-black ellipse-1">{{ store.name }}</h4>
                     <p class="text-2xs ellipse-1 leading-6">{{ store.address }}</p>
                     <p class="text-2xs text-gray-900 ellipse-1">{{ isOpening(store) }}</p>
@@ -87,7 +87,5 @@ export default {
     height: 100%;
     object-fit: cover;
 }
-.store-info {
-    max-width: calc(100% - 84px);
-}
+
 </style>
