@@ -109,7 +109,7 @@ export default {
             </div>
             <div class="mb-8 md:mb-5">
               <h3 class="text-3xl highlighter highlighter-blue-250">符合 <span class="font-extrabold">餐具清洗良好作業指引</span></h3>
-              <p class="mb-2 pt-2 text-justify">每季委由SGS檢驗清洗殘留物，合格率100%<br />確保容器清洗後之餐具無脂肪、澱粉、大腸桿菌、洗潔劑之殘留</p>
+              <p class="mb-2 pt-2 text-justify">每季委由SGS檢驗清洗殘留物，確保容器清洗後之餐具無脂肪、澱粉、蛋白質、洗潔劑殘留，及大腸桿菌檢測陰性。</p>
               <p class="flex gap-4 flex-wrap">
                 <a href="https://drive.google.com/drive/folders/1SUgi7vbuEeMo5tnajfQZDmV2IsAXroFo?usp=sharing" target="_blank" class="link link-blue">SGS清洗檢驗報告</a>
               </p>
