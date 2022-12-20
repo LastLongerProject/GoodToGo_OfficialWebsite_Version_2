@@ -20,7 +20,7 @@
 }
 body {
     font-family: 'Noto Sans TC', Arial, sans-serif;
-    @apply text-black tracking-wide text-base
+    @apply text-black tracking-wide text-base font-light
 }
 
 /* space */
