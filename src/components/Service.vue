@@ -531,10 +531,6 @@ export default {
 }
 .toggler-circle img {
   pointer-events: none;
-  transition: all 0.4s ease;
-}
-.toggler-circle:hover img {
-  transform: scale(1.1);
 }
 .collapse-block {
   position: absolute;
