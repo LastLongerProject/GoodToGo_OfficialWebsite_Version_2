@@ -1,5 +1,9 @@
 <script>
+import storeList from '../components/storeList.vue'
 export default {
+  components: {
+    storeList
+  },
   mounted(){
     const collapseTogglers = document.querySelectorAll('.collapse-toggler')
     collapseTogglers.forEach( (toggler) => {
@@ -424,7 +428,7 @@ export default {
           <h2 class="text-4xl font-extrabold highlighter">合作站點</h2>
         </div>
         <div>
-          <p></p>
+          <storeList />
         </div>
       </div>
     </section>
