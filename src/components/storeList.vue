@@ -36,7 +36,7 @@ export default {
     });
   },
   methods: {
-    isOpening(store) {
+    getOpenTimeString(store) {
         const _t = this
         const period = store.opening_hours.periods[this.todayDay]
         if(period){
@@ -65,11 +65,12 @@ export default {
                 <div class="flex-shrink overflow-hidden">
                     <h4 class="text-lg font-black ellipse-1">{{ store.name }}</h4>
                     <p class="text-2xs ellipse-1 leading-6">{{ store.address }}</p>
-                    <p class="text-2xs text-gray-900 ellipse-1">{{ isOpening(store) }}</p>
+                    <p class="text-2xs text-gray-900 ellipse-1">{{ getOpenTimeString(store) }}</p>
                 </div>
             </li>
         </ul>
     </div>
+    <button @click="showAmount+=12">載入更多</button>
 </template>
 
 <style scoped>
