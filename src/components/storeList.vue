@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import address from '../../public/address.json';
 
 export default {
   data(){
@@ -9,6 +10,8 @@ export default {
       tomorrowDay: 1,
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
       showAmount: 12,
+      area: Object.keys(address),
+      keyword: ''
     }
   },
   mounted(){
@@ -25,7 +28,6 @@ export default {
     .then(function (response) {
       // handle success
       _t.storeList = response.data.storeList
-      console.log(_t.storeList)
     })
     .catch(function (error) {
       // handle error
@@ -33,7 +35,7 @@ export default {
     })
     .then(function () {
       // always executed
-    });
+    });      
   },
   methods: {
     getOpenTimeString(store) {
@@ -48,8 +50,22 @@ export default {
   },
   computed: {
     showList() {
-        return this.storeList.slice(0, this.showAmount)
-    }
+      console.log(this.keyword);
+      if(this.keyword.length == 0){
+        return this.storeList.slice(0, this.showAmount);
+      }
+        
+      let result = [];
+      this.storeList.forEach(element => {        
+        let county = element.address.substring(2,5);
+        if(county.match(this.keyword))
+          result.push(element);
+      });
+
+      console.log(result);
+      return result;
+      }
+
   }
 }
 
@@ -57,8 +73,15 @@ export default {
 
 <template>
     <div>
+      <div id="app">
+	<select v-model="keyword">    
+        <option value="">請選擇</option>
+        <option v-for="addr in area" >{{ addr }}</option>
+	</select>
+	<p>選到的選項value為:{{ keyword }}</p>
+</div>
         <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <li v-for="(store, index) in showList" class="flex gap-3">
+            <li v-for="(store, index) in showList" :key="index" class="flex gap-3">
                 <div class="store-photo-wrap">
                     <img :src="store.photo" />
                 </div>
