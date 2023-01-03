@@ -10,7 +10,7 @@ export default {
       tomorrowDay: 1,
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
       showAmount: 12,
-      area: Object.keys(address),
+      dropdownCountys: [],
       keyword: ''
     }
   },
@@ -27,7 +27,15 @@ export default {
     axios.get('https://app.goodtogo.tw/test/stores/list/forOfficialPage')
     .then(function (response) {
       // handle success
-      _t.storeList = response.data.storeList
+      _t.storeList = response.data.storeList;
+
+      // 取合作店家地址當縣市名稱
+      let countyListFromStoreAddress = Array.from(response.data.storeList, s => s.address.substring(2,5));
+      countyListFromStoreAddress = [...new Set(countyListFromStoreAddress)];
+
+      // 正常的縣市名稱
+      let totalCountyList = Object.keys(address);
+      _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
     })
     .catch(function (error) {
       // handle error
@@ -50,7 +58,6 @@ export default {
   },
   computed: {
     showList() {
-      console.log(this.keyword);
       if(this.keyword.length == 0){
         return this.storeList.slice(0, this.showAmount);
       }
@@ -65,7 +72,6 @@ export default {
       console.log(result);
       return result;
       }
-
   }
 }
 
@@ -76,7 +82,7 @@ export default {
       <div id="app">
 	<select v-model="keyword">    
         <option value="">請選擇</option>
-        <option v-for="addr in area" >{{ addr }}</option>
+        <option v-for="addr in dropdownCountys" >{{ addr }}</option>
 	</select>
 	<p>選到的選項value為:{{ keyword }}</p>
 </div>
