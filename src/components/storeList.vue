@@ -35,6 +35,9 @@ export default {
 
       // 正常的縣市名稱
       let totalCountyList = Object.keys(address);
+      countyListFromStoreAddress = Array.from(countyListFromStoreAddress, c => c.replace('臺', '台'));
+      totalCountyList = Array.from(totalCountyList, c => c.replace('臺', '台'));
+
       _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
     })
     .catch(function (error) {
@@ -69,7 +72,6 @@ export default {
           result.push(element);
       });
 
-      console.log(result);
       return result;
       }
   }
@@ -84,7 +86,6 @@ export default {
         <option value="">請選擇</option>
         <option v-for="addr in dropdownCountys" >{{ addr }}</option>
 	</select>
-	<p>選到的選項value為:{{ keyword }}</p>
 </div>
         <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <li v-for="(store, index) in showList" :key="index" class="flex gap-3">
