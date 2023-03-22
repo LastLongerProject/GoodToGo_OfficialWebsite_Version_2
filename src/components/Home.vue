@@ -98,7 +98,7 @@ export default {
           </div>
           <div class="mb-8 md:mb-5">
             <h3 class="text-3xl mb-1 highlighter highlighter-blue-250">多點借還 <span class="font-extrabold">好方便</span></h3>
-            <p class="mb-2 pt-2 text-justify">與全台餐飲店家合作，外帶外送直接使用循環容器盛裝你的餐點，享用完畢後，歸還到任一合作店家或自助歸還站。這裡借，那裡還，就是這麼方便！，每季SGS檢驗合格。</p>
+            <p class="mb-2 pt-2 text-justify">與全台餐飲店家合作，外帶外送直接使用循環容器盛裝你的餐點，享用完畢後，歸還到任一合作店家或自助歸還站。這裡借，那裡還，就是這麼方便！</p>
             <p class="flex gap-4 flex-wrap">
               <router-link to="/service/#map" class="link link-white">好盒器站點</router-link>
             </p>
