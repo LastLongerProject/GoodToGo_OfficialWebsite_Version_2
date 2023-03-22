@@ -62,6 +62,16 @@ module.exports = {
       '6xl': ['100px', '130px'],
       '8xl': ['144px', '160px'],
     },
+    borderRadius: {
+      'none': '0',
+      'sm': '0.125rem',
+      DEFAULT: '0.25rem',
+      DEFAULT: '4px',
+      'md': '9px',
+      'lg': '15px',
+      'xl': '21px',
+      'full': '9999px',
+    }
   },
   plugins: [],
 }

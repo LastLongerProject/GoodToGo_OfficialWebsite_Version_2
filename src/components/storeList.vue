@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import address from '../../public/address.json';
+import address from '../assets/address.json';
 
 export default {
   data(){
@@ -11,7 +11,7 @@ export default {
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
       showAmount: 12,
       dropdownCountys: [],
-      keyword: ''
+      region: ''
     }
   },
   mounted(){
@@ -61,14 +61,14 @@ export default {
   },
   computed: {
     showList() {
-      if(this.keyword.length == 0){
+      if(this.region.length == 0){
         return this.storeList.slice(0, this.showAmount);
       }
         
       let result = [];
       this.storeList.forEach(element => {        
         let county = element.address.substring(2,5);
-        if(county.match(this.keyword))
+        if(county.match(this.region))
           result.push(element);
       });
 
@@ -80,14 +80,24 @@ export default {
 </script>
 
 <template>
-    <div>
-      <div id="app">
-	<select v-model="keyword">    
-        <option value="">請選擇</option>
-        <option v-for="addr in dropdownCountys" >{{ addr }}</option>
-	</select>
-</div>
-        <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="store-list-wrap rounded-xl overflow-hidden border-2 border-blue">
+      <div class="store-list-header pt-6 pb-4 px-8 bg-blue">
+        <div class="flex">
+          <div class="bg-white rounded-md px-4 py-1 inline-block font-bold">
+            <span class="material-symbols-rounded text-2xl mr-4">location_on</span>
+            <select v-model="region" class="align-super">
+                  <option value="">全部</option>
+                  <option v-for="addr in dropdownCountys" >{{ addr }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="pt-2">
+          <span class="text-sm font-bold text-white">搜尋結果：{{ region == '' ? '全部':region }}有 {{ region == '' ? storeList.length:showList.length }} 個合作站點</span>
+        </div>
+      </div>
+      <div class="store-list-body pr-2 ">
+        <div class="store-list-content pl-8 pr-6 py-6 scrollbar-light">
+          <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-10">
             <li v-for="(store, index) in showList" :key="index" class="flex gap-3">
                 <div class="store-photo-wrap">
                     <img :src="store.photo" />
@@ -98,9 +108,16 @@ export default {
                     <p class="text-2xs text-gray-900 ellipse-1">{{ getOpenTimeString(store) }}</p>
                 </div>
             </li>
-        </ul>
+          </ul>
+          <div class="text-center flex flex-col items-center justify-center">
+            <span class="material-symbols-rounded mt-2 text-3xl text-blue-250">more_vert</span>
+            <button @click="showAmount+=12" class="btn btn-bg-blue">載入更多</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <button @click="showAmount+=12">載入更多</button>
+    
+    
 </template>
 
 <style scoped>
@@ -112,11 +129,18 @@ export default {
     min-width: 72px;
     height: 72px;
     overflow: hidden;
+    border-radius: 9999px;
 }
 .store-photo-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
+.store-list-wrap {
+  box-shadow: 0 11px 0px var(--color-blue);
+}
+.store-list-content {
+  max-height: 450px;
+  overflow-y: auto;
+}
 </style>

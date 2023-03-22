@@ -424,7 +424,7 @@ export default {
     </section>
     <section id="map">
       <div class="container pt-40 pb-40">
-        <div class="text-center mb-24">
+        <div class="text-center mb-16">
           <h2 class="text-4xl font-extrabold highlighter">合作站點</h2>
         </div>
         <div>
