@@ -6,10 +6,11 @@ export default {
   data(){
     return {
       storeList: [],
+      resultList: [],
       todayDay: 0,
       tomorrowDay: 1,
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
-      showAmount: 12,
+      showAmount: 24,
       dropdownCountys: [],
       region: ''
     }
@@ -39,6 +40,13 @@ export default {
       totalCountyList = Array.from(totalCountyList, c => c.replace('臺', '台'));
 
       _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
+
+      console.log(_t.storeList)
+      _t.storeList.forEach((store) => {
+        if(!store.photo){
+          store.photo = 'https://app.goodtogo.tw/test/images/store/636?ref=AfLeUgNyyzgsp_L88Ht6Wn7vOklj-Y40ivZzITnbDo5u-hotTIgMwNteu6TdLx4ZhBvDZgJ7qJJLBdV07y_gtD-QYAckhABzpNsLuJ1oBI0H05Wmp4R5f9dwqdGAfY4k42Fb8AZRoPRsxSLKd6iYI2it-Z230gVb-5IDqhQ3j6l6G_251Hvf'
+        }
+      })
     })
     .catch(function (error) {
       // handle error
@@ -62,18 +70,20 @@ export default {
   computed: {
     showList() {
       if(this.region.length == 0){
-        return this.storeList.slice(0, this.showAmount);
-      }
-        
-      let result = [];
-      this.storeList.forEach(element => {        
-        let county = element.address.substring(2,5);
-        if(county.match(this.region))
-          result.push(element);
-      });
+        this.resultList = this.storeList
+      } else {
+        let result = [];
+        this.storeList.forEach(element => {        
+          let county = element.address.substring(2,5);
+          if(county.match(this.region))
+            result.push(element);
+        });
 
-      return result;
+        this.resultList = result
       }
+      
+      return this.resultList.slice(0, this.showAmount);;
+    }
   }
 }
 
@@ -92,7 +102,7 @@ export default {
           </div>
         </div>
         <div class="pt-2">
-          <span class="text-sm font-bold text-white">搜尋結果：{{ region == '' ? '全部':region }}有 {{ region == '' ? storeList.length:showList.length }} 個合作站點</span>
+          <span class="text-sm font-bold text-white">搜尋結果：{{ region == '' ? '全部':region }}有 {{ region == '' ? storeList.length:resultList.length }} 個合作站點</span>
         </div>
       </div>
       <div class="store-list-body pr-2 ">
@@ -109,9 +119,9 @@ export default {
                 </div>
             </li>
           </ul>
-          <div class="text-center flex flex-col items-center justify-center">
+          <div v-if="resultList.length > showList.length" class="text-center flex flex-col items-center justify-center">
             <span class="material-symbols-rounded mt-2 text-3xl text-blue-250">more_vert</span>
-            <button @click="showAmount+=12" class="btn btn-bg-blue">載入更多</button>
+            <button @click="showAmount+=24" class="btn btn-bg-blue">載入更多</button>
           </div>
         </div>
       </div>
