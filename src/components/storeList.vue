@@ -12,7 +12,8 @@ export default {
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
       showAmount: 24,
       dropdownCountys: [],
-      region: ''
+      region: '',
+      search: '',
     }
   },
   mounted(){
@@ -61,9 +62,9 @@ export default {
         const _t = this
         const period = store.opening_hours.periods[this.todayDay]
         if(period){
-          return '營業時間：週' + this.dayList[this.todayDay] + ' ' + period.open.time + ' - ' + period.close.time
+          return '今日營業時間：' + period.open.time + ' - ' + period.close.time
         } else {
-          return '休息中'
+          return '今日休息中'
         }
     },
     defaultImg(store) {
@@ -86,14 +87,13 @@ export default {
       if(this.region.length == 0){
         this.resultList = this.storeList
       } else {
-        let result = [];
-        this.storeList.forEach(element => {        
-          let county = element.address.substring(2,5);
-          if(county.match(this.region))
-            result.push(element);
-        });
-
+        let result = this.storeList.filter(store => store.address.includes(this.region));
         this.resultList = result
+      }
+
+      if(this.search != ''){
+        console.log(this.search)
+        this.resultList = this.resultList.filter(store => store.name.includes(this.search))
       }
       
       return this.resultList.slice(0, this.showAmount);;
@@ -106,17 +106,21 @@ export default {
 <template>
     <div class="store-list-wrap rounded-xl overflow-hidden border-2 border-blue">
       <div class="store-list-header pt-6 pb-4 px-8 bg-blue">
-        <div class="flex">
-          <div class="bg-white rounded-md px-4 py-1 inline-block font-bold">
+        <div class="flex gap-4 flex-col md:flex-row items-start">
+          <div class="bg-white rounded-md px-4 py-1 inline-block font-bold flex justify-start items-center">
             <span class="material-symbols-rounded text-2xl mr-4">location_on</span>
-            <select v-model="region" class="align-super">
-                  <option value="">全部</option>
+            <select v-model="region">
+                  <option value="">全台</option>
                   <option v-for="addr in dropdownCountys" >{{ addr }}</option>
             </select>
           </div>
+          <div class="bg-white rounded-md pl-4 pr-2 py-1 inline-block font-bold flex justify-start items-center">
+            <span class="material-symbols-rounded text-2xl mr-2">search</span>
+            <input v-model="search" size="3" />
+          </div>
         </div>
         <div class="pt-2">
-          <span class="text-sm font-bold text-white">搜尋結果：{{ region == '' ? '全部':region }}有 {{ region == '' ? storeList.length:resultList.length }} 個合作站點</span>
+          <span class="text-sm font-bold text-white"><span v-if="search">「{{search}}」的</span>搜尋結果：{{ region == '' ? '全台':region }}有 {{ resultList.length }} 個合作站點</span>
         </div>
       </div>
       <div class="store-list-body pr-2 ">
@@ -133,6 +137,9 @@ export default {
                 </div>
             </li>
           </ul>
+          <div v-if="resultList.length <= 0">
+            <p class="text-center text-gray-900">目前的搜尋條件查無合作站點，請試試其他條件。</p>
+          </div>
           <div v-if="resultList.length > showList.length" class="text-center flex flex-col items-center justify-center">
             <span class="material-symbols-rounded mt-2 text-3xl text-blue-250">more_vert</span>
             <button @click="showAmount+=24" class="btn btn-bg-blue">載入更多</button>
