@@ -41,7 +41,7 @@ export default {
 
       _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
 
-      console.log(_t.storeList)
+      // console.log(_t.storeList)
       _t.storeList.forEach((store) => {
         if(!store.photo){
           store.photo = 'https://app.goodtogo.tw/test/images/store/636?ref=AfLeUgNyyzgsp_L88Ht6Wn7vOklj-Y40ivZzITnbDo5u-hotTIgMwNteu6TdLx4ZhBvDZgJ7qJJLBdV07y_gtD-QYAckhABzpNsLuJ1oBI0H05Wmp4R5f9dwqdGAfY4k42Fb8AZRoPRsxSLKd6iYI2it-Z230gVb-5IDqhQ3j6l6G_251Hvf'
@@ -61,10 +61,24 @@ export default {
         const _t = this
         const period = store.opening_hours.periods[this.todayDay]
         if(period){
-            return '營業時間：週' + this.dayList[this.todayDay] + ' ' + period.open.time + ' - ' + period.close.time
+          return '營業時間：週' + this.dayList[this.todayDay] + ' ' + period.open.time + ' - ' + period.close.time
         } else {
-            console.log(store)
+          return '休息中'
         }
+    },
+    defaultImg(store) {
+      if(!store.tryimg){
+        store.tryimg = 0
+      } else {
+        store.tryimg ++
+      }
+      let src = store.photo
+      store.photo = 'https://app.goodtogo.tw/test/images/store/636?ref=AfLeUgNyyzgsp_L88Ht6Wn7vOklj-Y40ivZzITnbDo5u-hotTIgMwNteu6TdLx4ZhBvDZgJ7qJJLBdV07y_gtD-QYAckhABzpNsLuJ1oBI0H05Wmp4R5f9dwqdGAfY4k42Fb8AZRoPRsxSLKd6iYI2it-Z230gVb-5IDqhQ3j6l6G_251Hvf'
+      if(store.tryimg < 3){
+        setTimeout(() => {
+          store.photo = src
+        }, 100)
+      }
     }
   },
   computed: {
@@ -110,7 +124,7 @@ export default {
           <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-10">
             <li v-for="(store, index) in showList" :key="index" class="flex gap-3">
                 <div class="store-photo-wrap">
-                    <img :src="store.photo" />
+                    <img :src="store.photo" @error="defaultImg(store)" loading="lazy" />
                 </div>
                 <div class="flex-shrink overflow-hidden">
                     <h4 class="text-lg font-black ellipse-1">{{ store.name }}</h4>
