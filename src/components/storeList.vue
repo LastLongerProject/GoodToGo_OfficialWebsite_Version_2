@@ -42,7 +42,7 @@ export default {
 
       _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
 
-      // console.log(_t.storeList)
+      console.log(_t.storeList)
       _t.storeList.forEach((store) => {
         if(!store.photo){
           store.photo = 'https://app.goodtogo.tw/test/images/store/636?ref=AfLeUgNyyzgsp_L88Ht6Wn7vOklj-Y40ivZzITnbDo5u-hotTIgMwNteu6TdLx4ZhBvDZgJ7qJJLBdV07y_gtD-QYAckhABzpNsLuJ1oBI0H05Wmp4R5f9dwqdGAfY4k42Fb8AZRoPRsxSLKd6iYI2it-Z230gVb-5IDqhQ3j6l6G_251Hvf'
@@ -93,7 +93,7 @@ export default {
 
       if(this.search != ''){
         console.log(this.search)
-        this.resultList = this.resultList.filter(store => store.name.includes(this.search))
+        this.resultList = this.resultList.filter(store => store.name.includes(this.search) || store.address.includes(this.search))
       }
       
       return this.resultList.slice(0, this.showAmount);;
@@ -138,6 +138,9 @@ export default {
             </li>
           </ul>
           <div v-if="resultList.length <= 0">
+            <div class="text-center">
+              <span class="material-symbols-rounded text-4xl text-gray">not_listed_location</span>
+            </div>
             <p class="text-center text-gray-900">目前的搜尋條件查無合作站點，請試試其他條件。</p>
           </div>
           <div v-if="resultList.length > showList.length" class="text-center flex flex-col items-center justify-center">
