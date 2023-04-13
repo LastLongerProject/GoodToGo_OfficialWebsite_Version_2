@@ -3,6 +3,7 @@
 @tailwind utilities;
 :root {
     --height-header: 55px;
+    --color-gray: #D9D9D9;
     --color-yellow: #FFD84B;
     --color-blue: #40B9D8;
     --color-blue-250: #9FDCEC;
@@ -101,7 +102,11 @@ a.link.link-blue:hover {
 .btn-border-yellow:hover {
     @apply border-yellow-700 text-yellow-700
 }
-
+.btn-bg-blue {
+    @apply bg-blue text-white
+}
+.btn-bg-blue:hover {
+}
 /* icon */
 .icon-svg {
     display: inline-block;
@@ -151,4 +156,19 @@ a.link.link-blue:hover {
     border-style: solid;
     border-radius: 21px;
     @apply bg-white flex flex-col items-center gap-2
+}
+
+/* scroll-bar */
+.scrollbar-light::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent; /* or add it to the track */
+}
+.scrollbar-light::-webkit-scrollbar-button {
+    height: 10px;
+}
+.scrollbar-light::-webkit-scrollbar-thumb {
+    background: var(--color-gray);
+    border-radius: 10px;
+    width: 6px;
 }
