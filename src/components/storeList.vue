@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import address from '../assets/address.json';
+import taiwanCountyList from '../assets/address.json';
 
 export default {
   data(){
@@ -18,7 +18,9 @@ export default {
   },
   mounted(){
     const _t = this
+    _t.storeList = new Array(6)
 
+    // 取得今日星期
     const today = new Date();
     _t.todayDay = today.getDay()
     _t.tomorrowDay = _t.todayDay + 1
@@ -26,28 +28,34 @@ export default {
         _t.tomorrowDay = 0;
     };
 
+    // 正常的縣市名稱
+    let totalCountyList = Object.keys(taiwanCountyList);
+    totalCountyList = Array.from(totalCountyList, c => c.replace('臺', '台'));
+
     axios.get('https://app.goodtogo.tw/test/stores/list/forOfficialPage')
     .then(function (response) {
-      // handle success
-      _t.storeList = response.data.storeList;
+      // 初步處理取得的店家列表資料
+      const storeList = Array.from(response.data.storeList, (s) => {
+        s.address.replace('臺', '台')
+        if(!totalCountyList.some(county => s.address.includes(county))){
+          s.address = '台灣金門縣' + s.address
+        }
+        if(!s.photo){
+          s.photo = 'https://app.goodtogo.tw/test/images/store/636?ref=AfLeUgNyyzgsp_L88Ht6Wn7vOklj-Y40ivZzITnbDo5u-hotTIgMwNteu6TdLx4ZhBvDZgJ7qJJLBdV07y_gtD-QYAckhABzpNsLuJ1oBI0H05Wmp4R5f9dwqdGAfY4k42Fb8AZRoPRsxSLKd6iYI2it-Z230gVb-5IDqhQ3j6l6G_251Hvf'
+        }
+        return s
+      });
 
+      return storeList
+    })
+    .then(function(list) {
       // 取合作店家地址當縣市名稱
-      let countyListFromStoreAddress = Array.from(response.data.storeList, s => s.address.substring(2,5));
+      let countyListFromStoreAddress = Array.from(list, s => s.address.substring(2,5));
       countyListFromStoreAddress = [...new Set(countyListFromStoreAddress)];
 
-      // 正常的縣市名稱
-      let totalCountyList = Object.keys(address);
-      countyListFromStoreAddress = Array.from(countyListFromStoreAddress, c => c.replace('臺', '台'));
-      totalCountyList = Array.from(totalCountyList, c => c.replace('臺', '台'));
-
       _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
+      _t.storeList = list
 
-      console.log(_t.storeList)
-      _t.storeList.forEach((store) => {
-        if(!store.photo){
-          store.photo = 'https://app.goodtogo.tw/test/images/store/636?ref=AfLeUgNyyzgsp_L88Ht6Wn7vOklj-Y40ivZzITnbDo5u-hotTIgMwNteu6TdLx4ZhBvDZgJ7qJJLBdV07y_gtD-QYAckhABzpNsLuJ1oBI0H05Wmp4R5f9dwqdGAfY4k42Fb8AZRoPRsxSLKd6iYI2it-Z230gVb-5IDqhQ3j6l6G_251Hvf'
-        }
-      })
     })
     .catch(function (error) {
       // handle error
@@ -80,6 +88,13 @@ export default {
           store.photo = src
         }, 100)
       }
+    },
+    hasKeywords(store, searchList){
+      if(searchList.every(keyword => store.address.includes(keyword) || store.name.includes(keyword))){
+        return true
+      }else {
+        return false
+      }
     }
   },
   computed: {
@@ -92,11 +107,17 @@ export default {
       }
 
       if(this.search != ''){
-        console.log(this.search)
-        this.resultList = this.resultList.filter(store => store.name.includes(this.search) || store.address.includes(this.search))
+        let searchList = this.search.split(' ')
+        console.log(searchList)
+        this.resultList = this.resultList.filter(store => this.hasKeywords(store, searchList))
       }
-      
-      return this.resultList.slice(0, this.showAmount);;
+      console.log(this.resultList)
+
+      if(this.resultList.length > this.showAmount){
+        return this.resultList.slice(0, this.showAmount);
+      } else {
+        return this.resultList;
+      }
     }
   }
 }
@@ -105,18 +126,24 @@ export default {
 
 <template>
     <div class="store-list-wrap rounded-xl overflow-hidden border-2 border-blue">
-      <div class="store-list-header pt-6 pb-4 px-8 bg-blue">
-        <div class="flex gap-4 flex-col md:flex-row items-start">
-          <div class="bg-white rounded-md px-4 py-1 inline-block font-bold flex justify-start items-center">
+      <div class="store-list-header pt-6 pb-4 px-4 lg:px-8 bg-blue">
+        <div class="flex gap-4 flex-col lg:flex-row items-stretch justify-between">
+          <div class="bg-white rounded-md px-4 py-1 font-bold flex justify-start items-center">
             <span class="material-symbols-rounded text-2xl mr-4">location_on</span>
-            <select v-model="region">
+            <select v-model="region" class="w-full">
                   <option value="">全台</option>
                   <option v-for="addr in dropdownCountys" >{{ addr }}</option>
             </select>
           </div>
-          <div class="bg-white rounded-md pl-4 pr-2 py-1 inline-block font-bold flex justify-start items-center">
+          <div class="flex flex-wrap items-stretch gap-4 order-3 lg:order-none">
+            <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='自助'">自助</button>
+            <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='麥當勞'">麥當勞</button>
+            <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='全家'">全家</button>
+            <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='7-11'">7-11</button>
+          </div>
+          <div class="bg-white rounded-md pl-4 pr-2 py-1 font-bold flex justify-start items-center">
             <span class="material-symbols-rounded text-2xl mr-2">search</span>
-            <input v-model="search" size="3" />
+            <input v-model="search" size="3" class="w-full" />
           </div>
         </div>
         <div class="pt-2">
@@ -124,17 +151,29 @@ export default {
         </div>
       </div>
       <div class="store-list-body pr-2 ">
-        <div class="store-list-content pl-8 pr-6 py-6 scrollbar-light">
-          <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-10">
+        <div class="store-list-content px-4 lg:pl-8 lg:pr-6 py-6 scrollbar-light">
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-10">
             <li v-for="(store, index) in showList" :key="index" class="flex gap-3">
-                <div class="store-photo-wrap">
+                <template v-if="store">
+                  <div class="store-photo-wrap">
                     <img :src="store.photo" @error="defaultImg(store)" loading="lazy" />
-                </div>
-                <div class="flex-shrink overflow-hidden">
-                    <h4 class="text-lg font-black ellipse-1">{{ store.name }}</h4>
-                    <p class="text-2xs ellipse-1 leading-6">{{ store.address }}</p>
-                    <p class="text-2xs text-gray-900 ellipse-1">{{ getOpenTimeString(store) }}</p>
-                </div>
+                  </div>
+                  <div class="grow overflow-hidden">
+                      <h4 class="text-lg font-black ellipse-1">{{ store.name }}</h4>
+                      <p class="text-2xs ellipse-1 leading-6">{{ store.address }}</p>
+                      <p class="text-2xs text-gray-900 ellipse-1">{{ getOpenTimeString(store) }}</p>
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="store-photo-wrap animate-pulse">
+                    <div class="bg-gray w-full h-full"></div>
+                  </div>
+                  <div class="grow overflow-hidden animate-pulse">
+                    <div class="h-5 bg-gray rounded-full w-full mb-3"></div>
+                    <div class="h-3 bg-gray rounded-full w-full mb-3"></div>
+                    <div class="h-3 bg-gray rounded-full w-full"></div>
+                  </div>
+                </template>
             </li>
           </ul>
           <div v-if="resultList.length <= 0">
@@ -174,7 +213,5 @@ export default {
   box-shadow: 0 11px 0px var(--color-blue);
 }
 .store-list-content {
-  max-height: 450px;
-  overflow-y: auto;
 }
 </style>
