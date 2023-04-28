@@ -613,7 +613,7 @@ export default {
   top: 684px;
 }
 #capsule_sv_03 {
-  height: 877px;
+  height: 744px;
   width: 277px;
   left: 0;
   right: 0;
