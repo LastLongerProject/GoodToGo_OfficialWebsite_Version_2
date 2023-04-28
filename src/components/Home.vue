@@ -124,7 +124,9 @@ export default {
           </div>
           <p><router-link to="/service/#member" class="link link-white">會員權益</router-link></p>
         </div>
-        <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 scale-x-50 stroke-none fill-black my-4 md:mb-8 rotate-90 md:rotate-0">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+        </svg>
         <div class="text-center">
           <div class="card border-black mb-3">
             <h3 class="text-3xl font-extrabold">1<br />借用</h3>
@@ -132,7 +134,9 @@ export default {
           </div>
           <p><router-link to="/service/#rent" class="link link-white">４種借用方式</router-link></p>
         </div>
-        <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 scale-x-50 stroke-none fill-black my-4 md:mb-8 rotate-90 md:rotate-0">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+        </svg>
         <div class="text-center">
           <div class="card border-black mb-3">
             <h3 class="text-3xl font-extrabold">2<br />歸還</h3>
@@ -140,7 +144,9 @@ export default {
           </div>
           <p><router-link to="/service/#return" class="link link-white">２種歸還方式</router-link></p>
         </div>
-        <span class="material-symbols-rounded text-4xl mb-6 text-w-half rotate-90 md:rotate-0">arrow_right</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 scale-x-50 stroke-none fill-black my-4 md:mb-8 rotate-90 md:rotate-0">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+        </svg>
         <div class="text-center">
           <div class="card border-gray mb-3">
             <h3 class="text-3xl font-extrabold">∞<br />再來一次</h3>

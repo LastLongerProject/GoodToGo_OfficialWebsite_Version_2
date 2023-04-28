@@ -70,14 +70,21 @@ export default {
           <router-link to="/">
             <img src="/img/logo_goodtogo.svg" class="logo" alt="GoodToGo logo" />
           </router-link>
-          <button class="header-toggler md:hidden" @click="toggleHeader"><span class="material-symbols-rounded text-3xl leading-none">menu</span></button>
+          <button class="header-toggler md:hidden" @click="toggleHeader">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 stroke-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
         </div>
         
         <nav class="navbar">
           <ul class="primary-menu">
             <li>
               <router-link to="/service/">
-                服務內容<span class="material-symbols-rounded">arrow_drop_down</span>
+                服務內容
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block -mt-1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
               </router-link>
               <ul class="dropdown-menu">
                 <li><router-link to="/service/#cup">循環杯</router-link></li>
@@ -137,9 +144,6 @@ export default {
 }
 .primary-menu li {
   @apply relative
-}
-.primary-menu a .material-symbols-rounded {
-  vertical-align: sub;
 }
 .dropdown-menu {
   transition: all 0.4s ease;

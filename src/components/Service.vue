@@ -76,17 +76,23 @@ export default {
             <h3 class="text-3xl font-extrabold mb-2">鼓動浸泡</h3>
             <p>以鼓泡/超音波技術<br />將污垢軟化剝離</p>
           </div>
-          <span class="material-symbols-rounded text-6xl text-blue-100 text-w-half rotate-90 lg:rotate-0">arrow_right</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 scale-x-75 stroke-none fill-blue-100 rotate-90 md:rotate-0 md:mt-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+          </svg>
           <div class="text-center text-white">
             <h3 class="text-3xl font-extrabold mb-2">隧道式機洗</h3>
             <p>高溫高壓水柱洗淨</p>
           </div>
-          <span class="material-symbols-rounded text-6xl text-blue-100 text-w-half rotate-90 lg:rotate-0">arrow_right</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 scale-x-75 stroke-none fill-blue-100 rotate-90 md:rotate-0 md:mt-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+          </svg>
           <div class="text-center text-white">
             <h3 class="text-3xl font-extrabold mb-2">消毒乾燥</h3>
             <p>90-98°C蒸汽/遠紅外線<br />消毒烘乾</p>
           </div>
-          <span class="material-symbols-rounded text-6xl text-blue-100 text-w-half rotate-90 lg:rotate-0">arrow_right</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 scale-x-75 stroke-none fill-blue-100 rotate-90 md:rotate-0 md:mt-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+          </svg>
           <div class="text-center text-white">
             <h3 class="text-3xl font-extrabold mb-2">品質檢驗</h3>
             <p>強光源下逐一檢視<br />密封裝箱保存</p>
@@ -163,7 +169,9 @@ export default {
                 <img src="/img/info_rent_takeout.jpg"/>
                 <div class="img-tape">外帶飲料<br />直接選用循環杯</div>
               </div>
-              <span class="material-symbols-rounded">arrow_drop_down</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="under-arrow stroke-none fill-blue">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
             </button>
           </div>
           <div class="text-center w-1/4">
@@ -173,7 +181,9 @@ export default {
                 <img src="/img/info_rent_machine.jpg"/>
                 <div class="img-tape">在借杯機借杯至<br />其他店家使用</div>
               </div>
-              <span class="material-symbols-rounded">arrow_drop_down</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="under-arrow stroke-none fill-blue">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
             </button>
           </div>
           <div class="text-center w-1/4">
@@ -183,7 +193,9 @@ export default {
                 <img src="/img/info_rent_foodpanda.jpg"/>
                 <div class="img-tape">在外送平台點餐<br />選擇使用循環杯</div>
               </div>
-              <span class="material-symbols-rounded">arrow_drop_down</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="under-arrow stroke-none fill-blue">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
             </button>
           </div>
           <div class="text-center w-1/4">
@@ -193,7 +205,9 @@ export default {
                 <img src="/img/info_rent_grouporder.jpg"/>
                 <div class="img-tape">外帶飲料<br />直接選用循環杯</div>
               </div>
-              <span class="material-symbols-rounded">arrow_drop_down</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="under-arrow stroke-none fill-blue">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
             </button>
           </div>
         </div>
@@ -358,7 +372,9 @@ export default {
                 <img src="/img/info_return_machine.jpg"/>
                 <div class="img-tape">歸還到<br />24H自助歸還站</div>
               </div>
-              <span class="material-symbols-rounded">arrow_drop_down</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="under-arrow stroke-none fill-yellow">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
             </button>
           </div>
           <div class="text-center w-1/4">
@@ -368,7 +384,9 @@ export default {
                 <img src="/img/info_rent_takeout.jpg"/>
                 <div class="img-tape">歸還到<br />任一合作店家</div>
               </div>
-              <span class="material-symbols-rounded">arrow_drop_down</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="under-arrow stroke-none fill-yellow">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
             </button>
           </div>
         </div>
@@ -493,32 +511,26 @@ export default {
   margin-top: 2px;
   margin-bottom: 5px;
 }
-.toggler-circle .material-symbols-rounded {
-  font-size: 60px;
-  bottom: -37px;
+
+.toggler-circle .under-arrow {
   opacity: 0;
-  transform: translateY(-5px);
   pointer-events: none;
   transition: all 0.4s ease;
-  @apply absolute text-yellow inset-x-0 m-auto
-}
-.toggler-circle.toggler-circle-blue .material-symbols-rounded {
-  @apply text-blue
+  @apply w-8 h-8 scale-x-50 rotate-90 -translate-y-1 absolute mx-auto inset-x-0 -bottom-6;
 }
 @media screen and (min-width: 768px) {
   .toggler-circle.active {
     border-width: 13px;
     margin: 0;
   }
-  .toggler-circle .material-symbols-rounded {
-    font-size: 120px;
-    bottom: -76px;
-    transform: translateY(-10px);
+  .toggler-circle .under-arrow {
+    @apply w-16 h-16 scale-x-50 rotate-90 -translate-y-2 -bottom-12;
   }
 }
-.toggler-circle.active .material-symbols-rounded {
+
+.toggler-circle.active .under-arrow {
   opacity: 1;
-  transform: translateY(0px);
+  @apply rotate-90 translate-y-0
 }
 .img-tape {
   @apply absolute bg-white-op-80 w-full bottom-4 p-1

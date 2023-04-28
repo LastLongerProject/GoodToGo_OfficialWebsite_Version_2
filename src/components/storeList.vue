@@ -123,7 +123,10 @@ export default {
       <div class="store-list-header pt-6 pb-4 px-4 lg:px-8 bg-blue">
         <div class="flex gap-4 flex-col lg:flex-row items-stretch justify-between">
           <div class="bg-white rounded-md px-4 py-1 font-bold flex justify-start items-center">
-            <span class="material-symbols-rounded text-2xl mr-4">location_on</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
             <select v-model="region" class="w-full">
                   <option value="">全台</option>
                   <option v-for="addr in dropdownCountys" >{{ addr }}</option>
@@ -136,7 +139,9 @@ export default {
             <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='7-11'">7-11</button>
           </div>
           <div class="bg-white rounded-md pl-4 pr-2 py-1 font-bold flex justify-start items-center">
-            <span class="material-symbols-rounded text-2xl mr-2">search</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
             <input v-model="search" size="3" class="w-full" />
           </div>
         </div>
@@ -171,13 +176,15 @@ export default {
             </li>
           </ul>
           <div v-if="resultList.length <= 0">
-            <div class="text-center">
-              <span class="material-symbols-rounded text-4xl text-gray">not_listed_location</span>
-            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 stroke-gray mx-auto mb-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+            </svg>
             <p class="text-center text-gray-900">目前的搜尋條件查無合作站點，請試試其他條件。</p>
           </div>
           <div v-if="resultList.length > showList.length" class="text-center flex flex-col items-center justify-center">
-            <span class="material-symbols-rounded mt-2 text-3xl text-blue-250">more_vert</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 stroke-blue-250 my-3 mx-auto">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+            </svg>
             <button @click="showAmount+=24" class="btn btn-bg-blue">載入更多</button>
           </div>
         </div>
