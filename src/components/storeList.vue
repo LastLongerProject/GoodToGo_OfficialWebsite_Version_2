@@ -10,7 +10,7 @@ export default {
       todayDay: 0,
       tomorrowDay: 1,
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
-      showAmount: 24,
+      showAmount: 12,
       dropdownCountys: [],
       region: '',
       search: '',
@@ -108,16 +108,10 @@ export default {
 
       if(this.search != ''){
         let searchList = this.search.split(' ')
-        console.log(searchList)
         this.resultList = this.resultList.filter(store => this.hasKeywords(store, searchList))
       }
-      console.log(this.resultList)
 
-      if(this.resultList.length > this.showAmount){
-        return this.resultList.slice(0, this.showAmount);
-      } else {
-        return this.resultList;
-      }
+      return this.resultList.slice(0, this.showAmount);
     }
   }
 }
