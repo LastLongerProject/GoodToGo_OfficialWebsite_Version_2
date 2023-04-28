@@ -138,11 +138,16 @@ export default {
             <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='全家'">全家</button>
             <button class="bg-blue-100 hover:bg-blue-250 px-4 py-2 font-bold rounded-md" @click="search='7-11'">7-11</button>
           </div>
-          <div class="bg-white rounded-md pl-4 pr-2 py-1 font-bold flex justify-start items-center">
+          <div class="bg-white rounded-md pl-4 pr-6 py-1 font-bold flex justify-start items-center relative">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
             <input v-model="search" size="3" class="w-full" />
+            <button v-if="search != ''" @click="search=''">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 stroke-gray-900 hover:stroke-black absolute right-2 inset-y-0 m-auto">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
         </div>
         <div class="pt-2">
