@@ -93,7 +93,10 @@ export default {
 
       if(this.search != ''){
         console.log(this.search)
-        this.resultList = this.resultList.filter(store => store.name.includes(this.search) || store.address.includes(this.search))
+        this.resultList = this.resultList.filter(store => 
+          (store.name && store.name.includes(this.search)) || 
+          (store.address && store.address.includes(this.search))
+        )
       }
       
       return this.resultList.slice(0, this.showAmount);;
