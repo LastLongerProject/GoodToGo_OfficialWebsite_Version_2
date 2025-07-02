@@ -11,7 +11,7 @@ export default {
       tomorrowDay: 1,
       dayList: ['日', '一', '二', '三', '四', '五', '六'],
       showAmount: 24,
-      dropdownCountys: [],
+      dropdownCountys: ['台北市', '新北市', '基隆市', '宜蘭縣', '桃園市', '新竹市', '新竹縣', '苗栗縣', '台中市', '彰化縣', '南投縣', '雲林縣', '嘉義市', '嘉義縣', '台南市', '高雄市', '屏東縣', '台東縣', '花蓮縣', '澎湖縣', '金門縣', '連江縣'],
       region: '',
       search: '',
     }
@@ -31,16 +31,21 @@ export default {
       // handle success
       _t.storeList = response.data.storeList;
 
-      // 取合作店家地址當縣市名稱
-      let countyListFromStoreAddress = Array.from(response.data.storeList, s => s.address.substring(2,5));
-      countyListFromStoreAddress = [...new Set(countyListFromStoreAddress)];
+      // 取合作店家 region 當縣市名稱 (region 可能為 null，需過濾)
+      let countyListFromRegion = response.data.storeList
+        .map(s => s.region)
+        .filter(r => !!r && r.length); // 過濾 null 或空字串
+
+      // 將「臺」字替換為「台」
+      countyListFromRegion = countyListFromRegion.map(c => c.replace('臺', '台'));
+
+      // 去除重複值
+      countyListFromRegion = [...new Set(countyListFromRegion)];
 
       // 正常的縣市名稱
-      let totalCountyList = Object.keys(address);
-      countyListFromStoreAddress = Array.from(countyListFromStoreAddress, c => c.replace('臺', '台'));
-      totalCountyList = Array.from(totalCountyList, c => c.replace('臺', '台'));
+      let totalCountyList = Object.keys(address).map(c => c.replace('臺', '台'));
 
-      _t.dropdownCountys = countyListFromStoreAddress.filter(c => totalCountyList.includes(c));
+      _t.dropdownCountys = countyListFromRegion.filter(c => totalCountyList.includes(c));
 
       console.log(_t.storeList)
       _t.storeList.forEach((store) => {
@@ -84,21 +89,28 @@ export default {
   },
   computed: {
     showList() {
-      if(this.region.length == 0){
-        this.resultList = this.storeList
-      } else {
-        let result = this.storeList.filter(store => store.address.includes(this.region));
-        this.resultList = result
-      }
+      // 先以 store.region 比對，如無 region 再以 address 比對
+      let result = this.storeList.filter(store => {
+        // 標準化：將「臺」轉為「台」
+        const selected = this.region.replace('臺', '台')
+        if (store.region) {
+          return store.region.replace('臺', '台').includes(selected)
+        } else {
+          return store.address && store.address.includes(selected)
+        }
+      });
 
       if(this.search != ''){
         console.log(this.search)
-        this.resultList = this.resultList.filter(store => 
-          (store.name && store.name.includes(this.search)) || 
-          (store.address && store.address.includes(this.search))
+        const keyword = this.search.replace('臺', '台')
+        result = result.filter(store => 
+          (store.name && store.name.includes(keyword)) || 
+          (store.region && store.region.replace('臺', '台').includes(keyword)) ||
+          (store.address && store.address.includes(keyword))
         )
       }
       
+      this.resultList = result
       return this.resultList.slice(0, this.showAmount);;
     }
   }
