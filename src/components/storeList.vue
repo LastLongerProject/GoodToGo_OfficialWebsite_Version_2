@@ -93,15 +93,11 @@ export default {
       let result = this.storeList.filter(store => {
         // 標準化：將「臺」轉為「台」
         const selected = this.region.replace('臺', '台')
-        if (store.region) {
-          return store.region.replace('臺', '台').includes(selected)
-        } else {
-          return store.address && store.address.includes(selected)
-        }
+        return (store.region && store.region.replace('臺', '台').includes(selected)) ||
+               (store.address && store.address.includes(selected))
       });
 
       if(this.search != ''){
-        console.log(this.search)
         const keyword = this.search.replace('臺', '台')
         result = result.filter(store => 
           (store.name && store.name.includes(keyword)) || 
